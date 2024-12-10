@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Продукты</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>Продукты из Node сервера</h1>
+  </div>
+</div>
+<div>
+  <table class="product-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Цена</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+      <td th:text="${product.id}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.description}"></td>
+      <td th:text="${product.price}"></td>
+    </tr>
+    </tbody>
+    <a href="http://localhost:8080/createOrder">Создать заказ</a>
+  </table>
+</div>
+</body>

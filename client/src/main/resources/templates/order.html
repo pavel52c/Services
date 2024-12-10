@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Заказы</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>Заказ № <b th:text="${order.number}"></b></h1>
+  </div>
+</div>
+<div>
+  <p>Дата доставки - <b th:text="${order.dateReceive}"></b></p>
+  <table class="product-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Цена</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${order.products}">
+      <td th:text="${product.id}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.description}"></td>
+      <td th:text="${product.price}"></td>
+    </tr>
+    </tbody>
+</div>
+</body>

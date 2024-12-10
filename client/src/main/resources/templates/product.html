@@ -4,13 +4,13 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" href="/styles.css" />
-    <title>Product</title>
+    <title>Продукты</title>
 </head>
 <body>
 <div>
     <div>
-        <h1>Продукты</h1>
-        <a href="http://localhost:8080/createProductForm">Cоздать продукт</a>
+        <h1>Продукты из SOAP сервера</h1>
+        <a href="http://localhost:8080/createProductForm">Создать продукт</a>
     </div>
 </div>
 <div>
@@ -24,7 +24,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="product : ${products.product}">
+        <tr th:each="product : ${products}">
             <td th:text="${product.id}"></td>
             <td th:text="${product.name}"></td>
             <td th:text="${product.description}"></td>
@@ -32,5 +32,6 @@
         </tr>
         </tbody>
     </table>
+    <a href="http://localhost:8080/sendProducts">Перенести продукты в Базу данных</a>
 </div>
 </body>
