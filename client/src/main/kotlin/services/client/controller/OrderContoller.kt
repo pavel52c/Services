@@ -20,7 +20,7 @@ class OrderController {
 
     @RequestMapping("/createOrder")
     fun createOrder(model: Model): String {
-        productClient.createOrder()
+        productClient.createOrder(null)
         return "redirect:/orders"
     }
 

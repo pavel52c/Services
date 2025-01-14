@@ -16,7 +16,7 @@ class ProductController {
 
     @RequestMapping("/getProduct")
     fun getProduct(model: Model): String {
-        val resp = product.getProducts("")
+        val resp = product.getProducts()
         model.addAttribute("products", resp.product)
         return "product"
     }
@@ -34,7 +34,7 @@ class ProductController {
 
     @RequestMapping("/sendProducts")
     fun getProducts(model: Model): String {
-        val resp = product.getProducts("")
+        val resp = product.getProducts()
 
         product.setNodeProducts(resp.product)
         val nodeProducts = product.getNodeProducts();

@@ -16,9 +16,8 @@ import soap.server.Product
 import kotlin.random.Random
 
 class ProductClient : WebServiceGatewaySupport() {
-    fun getProducts(name: String): GetProductResponse {
+    fun getProducts(): GetProductResponse {
         val request = GetProductRequest()
-        request.name = name
 
 
         return webServiceTemplate.marshalSendAndReceive(
@@ -62,8 +61,8 @@ class ProductClient : WebServiceGatewaySupport() {
         return nodeResponse;
     }
 
-    fun createOrder(): OrderDTORS? {
-        val products = getNodeProducts();
+    fun createOrder(productsProp:  List<Product>?): OrderDTORS? {
+        val products = if (productsProp !== null) productsProp else getNodeProducts();
         val webClient = WebClient.create()
 
         val orderReq = OrderDTO(
