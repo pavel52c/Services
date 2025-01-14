@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Заказы</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>Список заказов</h1>
+  </div>
+</div>
+<div>
+  <table class="product-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Номер</th>
+      <th>Дата доставки</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+      <td th:text="${order.id}"></td>
+      <td th:text="${order.number}"></td>
+      <td th:text="${order.dateReceive}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <form action="/order" method="post" th:object="${body}" style="display: flex; flex-direction: column; gap: 10px; max-width: 300px">
+    <label for="id">Введите ID заказа, данные о котором хотите получить</label>
+    <input type="text" id="id" name="id" required>
+    <button type="submit">Найти</button>
+  </form>
+</div>
+</body>

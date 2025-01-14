@@ -39,7 +39,6 @@ class ProductEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateProductRequest")
     @ResponsePayload
     fun createProduct(@RequestPayload request: CreateProductRequest) {
-        System.out.println("name" + request.name);
         this.products.add( Product().apply {
             id = products.size.toLong() + 1
             name = request.name
